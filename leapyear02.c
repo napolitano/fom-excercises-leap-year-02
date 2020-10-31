@@ -23,7 +23,7 @@
  * This rule has an exception: If the year is divisible by 100, the year is not a leap year. 
  * This exception has again an exception: If the year is divisible by 400, the year is a leap year.
  */
-bool isLeapJahr(int year) {
+bool isLeapYear(int year) {
     if(year % 400 == 0) {
         return true; 
     } else if (year % 100 == 0) {
@@ -75,7 +75,7 @@ int main () {
 
     int year = getYearFromUser();
 
-    if(isLeapJahr(year)) {
+    if(isLeapYear(year)) {
         strcpy(result, IS_A_LEAP_YEAR);
         strcpy(fontColor, ANSI_COLOR_GREEN);
     } 
