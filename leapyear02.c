@@ -15,6 +15,7 @@
 #define INPUT_PROMPT       "Bitte geben Sie eine Jahreszahl ein: "
 #define IS_A_LEAP_YEAR     "ist ein Schaltjahr"
 #define IS_NOT_A_LEAP_YEAR "ist kein Schaltjahr"
+#define SELFTEST_FAILED    "Der Selbsttest is fehlgeschlagen.\n"
 
 /**
  * Returns true, if leap year and otherwise false
@@ -61,9 +62,32 @@ int getYearFromUser() {
 }
 
 /**
+ * Very simple self test based on script
+ */
+bool isSelfTestFailed(){
+    bool result = false;
+
+    if( !isLeapYear(2016) || 
+        !isLeapYear(2020) || 
+        !isLeapYear(2020) || 
+        isLeapYear(2019) || 
+        isLeapYear(2017) || 
+        isLeapYear(1900)) {
+        result = true;
+    } 
+
+    return result;
+}
+
+/**
  * The main function
  */
 int main () {
+
+    if (isSelfTestFailed()) {
+        printf(SELFTEST_FAILED);
+        return -1;
+    }
 
     char *result = malloc(20);
     char *fontColor = malloc(8);
