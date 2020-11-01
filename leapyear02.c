@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 
@@ -89,12 +88,9 @@ int main () {
         return -1;
     }
 
-    char *result = malloc(20);
-    char *fontColor = malloc(8);
+    char result[20] = IS_NOT_A_LEAP_YEAR;
+    char fontColor[8] = ANSI_COLOR_RED;
     
-    strcpy(result, IS_NOT_A_LEAP_YEAR);
-    strcpy(fontColor, ANSI_COLOR_RED);
-
     printHeader();
 
     int year = getYearFromUser();
@@ -105,9 +101,6 @@ int main () {
     } 
 
     printf("\n%s%d %s%s%s\n", ANSI_COLOR_YELLOW, year, fontColor, result, ANSI_COLOR_RESET);
-
-    free(fontColor);
-    free(result);
 
     return 0;
 }
