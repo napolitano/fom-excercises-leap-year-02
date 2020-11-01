@@ -12,6 +12,8 @@ On Windows systems, it may be necessary to install an appropriate environment (e
 
 On Windows systems, the call of the compiler should also be adapted:
 
+ˋˋˋbash
 gcc leapyear02.c -o leapyear02.exe
+ˋˋˋ
 
 Depending on the shell and environment used, it may be necessary to prefix a dot with the following backslash for execution - i.e. .\leapyear02.exe
