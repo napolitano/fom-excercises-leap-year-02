@@ -15,6 +15,7 @@
 #define IS_A_LEAP_YEAR     "ist ein Schaltjahr"
 #define IS_NOT_A_LEAP_YEAR "ist kein Schaltjahr"
 #define SELFTEST_FAILED    "Der Selbsttest is fehlgeschlagen.\n"
+#define RESULT_TEMPLATE    "\n%s%d %s%s%s\n"
 
 /**
  * Returns true, if leap year and otherwise false
@@ -66,6 +67,7 @@ int getYearFromUser() {
 bool isSelfTestFailed(){
     bool result = false;
 
+    // Values based on example in kpp4 script
     if( !isLeapYear(2016) || 
         !isLeapYear(2020) || 
         !isLeapYear(2020) || 
@@ -83,24 +85,31 @@ bool isSelfTestFailed(){
  */
 int main () {
 
+    // Perform quick self test and stop program with error message, if test fails
     if (isSelfTestFailed()) {
         printf(SELFTEST_FAILED);
         return -1;
     }
 
+    // Declare variables required for result output and initialize with text and color for negative result
     char result[20] = IS_NOT_A_LEAP_YEAR;
     char fontColor[8] = ANSI_COLOR_RED;
     
+    // Output the application header
     printHeader();
 
+    // Get the year
     int year = getYearFromUser();
 
+    // Check whether the given year is a leap year or not ...
     if(isLeapYear(year)) {
+        // ... and change result text and color for positive result
         strcpy(result, IS_A_LEAP_YEAR);
         strcpy(fontColor, ANSI_COLOR_GREEN);
     } 
 
-    printf("\n%s%d %s%s%s\n", ANSI_COLOR_YELLOW, year, fontColor, result, ANSI_COLOR_RESET);
+    // Output the result
+    printf(RESULT_TEMPLATE, ANSI_COLOR_YELLOW, year, fontColor, result, ANSI_COLOR_RESET);
 
     return 0;
 }
