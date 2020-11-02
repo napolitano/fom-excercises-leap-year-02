@@ -101,7 +101,6 @@ int main () {
     char result[20] = IS_NOT_A_LEAP_YEAR;
     char fontColor[8] = ANSI_COLOR_RED;
 
-
     // Check whether the given year is a leap year or not ...
     if(isLeapYear(year)) {
         // ... and change result text and color for positive result
