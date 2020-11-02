@@ -91,15 +91,16 @@ int main () {
         return -1;
     }
 
-    // Declare variables required for result output and initialize with text and color for negative result
-    char result[20] = IS_NOT_A_LEAP_YEAR;
-    char fontColor[8] = ANSI_COLOR_RED;
-    
     // Output the application header
     printHeader();
 
     // Get the year
     int year = getYearFromUser();
+
+    // Declare variables required for result output and initialize with text and color for negative result
+    char result[20] = IS_NOT_A_LEAP_YEAR;
+    char fontColor[8] = ANSI_COLOR_RED;
+
 
     // Check whether the given year is a leap year or not ...
     if(isLeapYear(year)) {
